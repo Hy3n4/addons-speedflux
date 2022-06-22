@@ -7,7 +7,7 @@ import speedflux
 
 
 def speedtest():
-    if not speedflux.CONFIG.SPEEDTEST_SERVER_ID:
+    if speedflux.CONFIG.SPEEDTEST_SERVER_ID is None:
         speedtest = subprocess.run(
             ["speedtest", "--accept-license", "--accept-gdpr", "-f", "json"],
             capture_output=True)
