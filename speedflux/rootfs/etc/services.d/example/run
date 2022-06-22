@@ -26,7 +26,6 @@ INFLUX_DB_PASSWORD=$(bashio::config 'influx_db_password') \
 INFLUX_DB_DATABASE=$(bashio::config 'influx_db_database') \
 INFLUX_DB_TAGS=$(bashio::config 'influx_db_tags') \
 SPEEDTEST_INTERVAL=$(bashio::config 'speedtest_interval') \
-SPEEDTEST_SERVER_ID=${SPEEDTEST_SERVER_ID} \
 PING_INTERVAL=$(bashio::config 'ping_interval') \
 PING_TARGETS=$(bashio::config 'ping_targets') \
 LOG_TYPE=$(bashio::config 'log_type') \

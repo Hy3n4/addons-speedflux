@@ -37,4 +37,4 @@ schema:
   ping_interval: int
   ping_targets: "str"
   log_type: "list(error|notice|info|debug)?"
-# image: "ghcr.io/hy3n4/{arch}-addon-speedflux"
+image: "ghcr.io/hy3n4/{arch}-addon-speedflux"
