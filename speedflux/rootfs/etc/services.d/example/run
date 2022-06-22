@@ -20,5 +20,7 @@ PING_INTERVAL=$(bashio::config 'ping_interval')
 PING_TARGETS=$(bashio::config 'ping_targets')
 LOG_TYPE=$(bashio::config 'log_type')
 
+bashio::log.info "Starting /app/main.py..."
+
 ## Run your program
 exec python /app/main.py
