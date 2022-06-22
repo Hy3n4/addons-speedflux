@@ -13,9 +13,9 @@ set +u
 
 bashio::log.info "Starting /app/main.py..."
 
-if bashio::config.has_value 'speedtest_server_id'; then
-    SPEEDTEST_SERVER_ID=$(bashio::config 'speedtest_server_id')
-fi
+# if bashio::config.has_value 'speedtest_server_id'; then
+#     SPEEDTEST_SERVER_ID=$(bashio::config 'speedtest_server_id')
+# fi
 
 ## Run your program
 NAMESPACE=$(bashio::config 'namespace') \
