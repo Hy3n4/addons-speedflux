@@ -28,15 +28,15 @@ options:
   log_type: "info"
 schema:
   namespace: "str?"
-  influx_db_address: str
+  influx_db_address: "str"
   influx_db_port: int
-  influx_db_user: str
-  influx_db_password: str
-  influx_db_database: str
+  influx_db_user: "str"
+  influx_db_password: "str"
+  influx_db_database: "str"
   influx_db_tags: "str?"
   speedtest_interval: "str?"
-  speedtest_server_id: "int?"
-  ping_interval: "int?"
+  speedtest_server_id: int?
+  ping_interval: int?
   ping_targets: "str?"
   log_type: "str?"
 image: "ghcr.io/hy3n4/{arch}-addon-speedflux"
