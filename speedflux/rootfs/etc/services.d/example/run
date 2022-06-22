@@ -1,5 +1,4 @@
-#!/usr/bin/env bashio
-# shellcheck shell=bash
+#!/command/with-contenv bashio
 set +u
 # ==============================================================================
 # Start the example service
