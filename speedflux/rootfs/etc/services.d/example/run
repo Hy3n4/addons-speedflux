@@ -15,7 +15,7 @@ INFLUX_DB_PASSWORD=$(bashio::config 'influx_db_password')
 INFLUX_DB_DATABASE=$(bashio::config 'influx_db_database')
 INFLUX_DB_TAGS=$(bashio::config 'influx_db_tags')
 SPEEDTEST_INTERVAL=$(bashio::config 'speedtest_interval')
-# SPEEDTEST_SERVER_ID=$(bashio::config 'speedtest_server_id')
+SPEEDTEST_SERVER_ID=$(bashio::config 'speedtest_server_id')
 PING_INTERVAL=$(bashio::config 'ping_interval')
 PING_TARGETS=$(bashio::config 'ping_targets')
 LOG_TYPE=$(bashio::config 'log_type')
@@ -23,4 +23,4 @@ LOG_TYPE=$(bashio::config 'log_type')
 bashio::log.info "Starting /app/main.py..."
 
 ## Run your program
-exec python /app/main.py
+exec python3 /app/main.py

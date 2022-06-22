@@ -20,10 +20,6 @@ options:
   influx_db_user: "speedtest"
   influx_db_password: "speedtest"
   influx_db_database: "speedtest"
-  influx_db_tags:
-  speedtest_interval:
-  ping_interval:
-  ping_targets:
   log_type: "info"
 schema:
   namespace: "str?"
@@ -36,5 +32,5 @@ schema:
   speedtest_interval: int?
   ping_interval: int?
   ping_targets: "str?"
-  log_type: "str?"
+  log_type: "list(error|notice|info|debug)?"
 image: "ghcr.io/hy3n4/{arch}-addon-speedflux"
