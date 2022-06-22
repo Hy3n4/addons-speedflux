@@ -15,12 +15,15 @@ map:
   - config
 options:
   namespace: "None"
-  influx_db_address: "dba0d7b954-influxdb"
+  influx_db_address: "a0d7b954-influxdb"
   influx_db_port: 8086
   influx_db_user: "speedtest"
   influx_db_password: "speedtest"
   influx_db_database: "speedtest"
   log_type: "info"
+  speedtest_interval: 5
+  ping_interval: 5
+  ping_targets: "1.1.1.1, 8.8.8.8"
 schema:
   namespace: "str?"
   influx_db_address: "str"
@@ -29,8 +32,8 @@ schema:
   influx_db_password: "str"
   influx_db_database: "str"
   influx_db_tags: "str?"
-  speedtest_interval: int?
-  ping_interval: int?
-  ping_targets: "str?"
+  speedtest_interval: int
+  ping_interval: int
+  ping_targets: "str"
   log_type: "list(error|notice|info|debug)?"
 image: "ghcr.io/hy3n4/{arch}-addon-speedflux"

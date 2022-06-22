@@ -1,4 +1,5 @@
 #!/usr/bin/with-contenv bashio
+# shellcheck shell=bash
 # ==============================================================================
 # Start the example service
 # s6-overlay docs: https://github.com/just-containers/s6-overlay
@@ -7,20 +8,21 @@
 # Add your code here
 
 ## Get the 'message' key from the user config options.
-NAMESPACE=$(bashio::config 'namespace')
-INFLUX_DB_ADDRESS=$(bashio::config 'influx_db_address')
-INFLUX_DB_PORT=$(bashio::config 'influx_db_port')
-INFLUX_DB_USER=$(bashio::config 'influx_db_user')
-INFLUX_DB_PASSWORD=$(bashio::config 'influx_db_password')
-INFLUX_DB_DATABASE=$(bashio::config 'influx_db_database')
-INFLUX_DB_TAGS=$(bashio::config 'influx_db_tags')
-SPEEDTEST_INTERVAL=$(bashio::config 'speedtest_interval')
-SPEEDTEST_SERVER_ID=$(bashio::config 'speedtest_server_id')
-PING_INTERVAL=$(bashio::config 'ping_interval')
-PING_TARGETS=$(bashio::config 'ping_targets')
-LOG_TYPE=$(bashio::config 'log_type')
+
 
 bashio::log.info "Starting /app/main.py..."
 
 ## Run your program
+NAMESPACE=$(bashio::config 'namespace') \
+INFLUX_DB_ADDRESS=$(bashio::config 'influx_db_address') \
+INFLUX_DB_PORT=$(bashio::config 'influx_db_port') \
+INFLUX_DB_USER=$(bashio::config 'influx_db_user') \
+INFLUX_DB_PASSWORD=$(bashio::config 'influx_db_password') \
+INFLUX_DB_DATABASE=$(bashio::config 'influx_db_database') \
+INFLUX_DB_TAGS=$(bashio::config 'influx_db_tags') \
+SPEEDTEST_INTERVAL=$(bashio::config 'speedtest_interval') \
+SPEEDTEST_SERVER_ID=$(bashio::config 'speedtest_server_id') \
+PING_INTERVAL=$(bashio::config 'ping_interval') \
+PING_TARGETS=$(bashio::config 'ping_targets') \
+LOG_TYPE=$(bashio::config 'log_type') \
 exec python3 /app/main.py
