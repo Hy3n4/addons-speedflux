@@ -6,14 +6,19 @@
 
 # Add your code here
 
-# Declare variables
-declare message
-
 ## Get the 'message' key from the user config options.
-message=$(bashio::config 'message')
-
-## Print the message the user supplied, defaults to "Hello World..."
-bashio::log.info "${message:="Hello World..."}"
+NAMESPACE=$(bashio::config 'namespace')
+INFLUX_DB_ADDRESS=$(bashio::config 'influx_db_address')
+INFLUX_DB_PORT=$(bashio::config 'influx_db_port')
+INFLUX_DB_USER=$(bashio::config 'influx_db_user')
+INFLUX_DB_PASSWORD=$(bashio::config 'influx_db_password')
+INFLUX_DB_DATABASE=$(bashio::config 'influx_db_database')
+INFLUX_DB_TAGS=$(bashio::config 'influx_db_tags')
+SPEEDTEST_INTERVAL=$(bashio::config 'speedtest_interval')
+SPEEDTEST_SERVER_ID=$(bashio::config 'speedtest_server_id')
+PING_INTERVAL=$(bashio::config 'ping_interval')
+PING_TARGETS=$(bashio::config 'ping_targets')
+LOG_TYPE=$(bashio::config 'log_type')
 
 ## Run your program
 exec python /app/main.py
