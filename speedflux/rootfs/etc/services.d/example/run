@@ -67,14 +67,23 @@ if bashio::config.has_value 'ping_targets'; then
     export PING_TARGETS=${ping_targets}
 fi
 
-if bashio::config.has_value 'tweaks.log_type'; then
+if bashio::config.has_value 'log_type'; then
     bashio::log.info "log_type ha value!"
-    log_type=$(bashio::config 'tweaks.log_type')
+    log_type=$(bashio::config 'log_type')
     export LOG_TYPE=${log_type}
 fi
 
-bashio::log.info "log_type: ${LOG_TYPE}"
+bashio::log.info "namespace: ${NAMESPACE}"
+bashio::log.info "influx_db_address: ${INFLUX_DB_ADDRESS}"
+bashio::log.info "influx_db_user: ${INFLUX_DB_USER}"
+bashio::log.info "influx_db_password: ${INFLUX_DB_PASSWORD}"
+bashio::log.info "influx_db_database: ${INFLUX_DB_DATABASE}"
+bashio::log.info "influx_db_tags: ${INFLUX_DB_TAGS}"
+bashio::log.info "speedtest_interval: ${SPEEDTEST_INTERVAL}"
+bashio::log.info "speedtest_server_id: ${SPEEDTEST_SERVER_ID}"
+bashio::log.info "ping_interval: ${PING_INTERVAL}"
 bashio::log.info "ping_targets: ${PING_TARGETS}"
+bashio::log.info "log_type: ${LOG_TYPE}"
 
 ## Run your program
 exec python3 /app/main.py
