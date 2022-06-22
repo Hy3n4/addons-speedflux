@@ -13,20 +13,65 @@ set +u
 
 bashio::log.info "Starting /app/main.py..."
 
-# if bashio::config.has_value 'speedtest_server_id'; then
-#     SPEEDTEST_SERVER_ID=$(bashio::config 'speedtest_server_id')
-# fi
+if bashio::config.has_value 'namespace'; then
+    NAMESPACE=$(bashio::config 'namespace')
+    export NAMESPACE
+fi
+
+if bashio::config.has_value 'influx_db_address'; then
+    INFLUX_DB_ADDRESS=$(bashio::config 'influx_db_address')
+    export INFLUX_DB_ADDRESS
+fi
+
+if bashio::config.has_value 'influx_db_port'; then
+    INFLUX_DB_PORT=$(bashio::config 'influx_db_port')
+    export INFLUX_DB_PORT
+fi
+
+if bashio::config.has_value 'influx_db_user'; then
+    INFLUX_DB_USER=$(bashio::config 'influx_db_port')
+    export INFLUX_DB_USER
+fi
+
+if bashio::config.has_value 'influx_db_password'; then
+    INFLUX_DB_PASSWORD=$(bashio::config 'influx_db_password')
+    export INFLUX_DB_PASSWORD
+fi
+
+if bashio::config.has_value 'influx_db_database'; then
+    INFLUX_DB_DATABASE=$(bashio::config 'influx_db_database')
+    export INFLUX_DB_DATABASE
+fi
+
+if bashio::config.has_value 'influx_db_tags'; then
+    INFLUX_DB_TAGS=$(bashio::config 'influx_db_tags')
+    export INFLUX_DB_TAGS
+fi
+
+if bashio::config.has_value 'speedtest_interval'; then
+    SPEEDTEST_INTERVAL=$(bashio::config 'speedtest_interval')
+    export SPEEDTEST_INTERVAL
+fi
+
+if bashio::config.has_value 'speedtest_server_id'; then
+    SPEEDTEST_SERVER_ID=$(bashio::config 'speedtest_server_id')
+    export SPEEDTEST_SERVER_ID
+fi
+
+if bashio::config.has_value 'ping_interval'; then
+    PING_INTERVAL=$(bashio::config 'ping_interval')
+    export PING_INTERVAL
+fi
+
+if bashio::config.has_value 'ping_targets'; then
+    PING_TARGETS=$(bashio::config 'ping_targets')
+    export PING_TARGETS
+fi
+
+if bashio::config.has_value 'log_type'; then
+    LOG_TYPE=$(bashio::config 'log_type')
+    export LOG_TYPE
+fi
 
 ## Run your program
-NAMESPACE=$(bashio::config 'namespace') \
-INFLUX_DB_ADDRESS=$(bashio::config 'influx_db_address') \
-INFLUX_DB_PORT=$(bashio::config 'influx_db_port') \
-INFLUX_DB_USER=$(bashio::config 'influx_db_user') \
-INFLUX_DB_PASSWORD=$(bashio::config 'influx_db_password') \
-INFLUX_DB_DATABASE=$(bashio::config 'influx_db_database') \
-INFLUX_DB_TAGS=$(bashio::config 'influx_db_tags') \
-SPEEDTEST_INTERVAL=$(bashio::config 'speedtest_interval') \
-PING_INTERVAL=$(bashio::config 'ping_interval') \
-PING_TARGETS=$(bashio::config 'ping_targets') \
-LOG_TYPE=$(bashio::config 'log_type') \
 exec python3 /app/main.py
