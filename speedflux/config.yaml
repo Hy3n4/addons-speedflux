@@ -20,11 +20,11 @@ options:
   influx_db_user: "speedtest"
   influx_db_password: "speedtest"
   influx_db_database: "speedtest"
-  influx_db_tags: "*"
-  speedtest_interval: 5
-  ping_interval: 5
-  ping_targets: "1.1.1.1, 8.8.8.8"
-  log_type: "info"
+  influx_db_tags:
+  speedtest_interval:
+  ping_interval:
+  ping_targets:
+  log_type:
 schema:
   namespace: "str?"
   influx_db_address: "str"
