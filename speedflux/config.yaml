@@ -12,7 +12,7 @@ arch:
   - i386
 init: false
 map:
-  - share:rw
+  - config
 options:
   namespace: "None"
   influx_db_address: "dba0d7b954-influxdb"
@@ -24,7 +24,7 @@ options:
   speedtest_interval:
   ping_interval:
   ping_targets:
-  log_type:
+  log_type: "info"
 schema:
   namespace: "str?"
   influx_db_address: "str"
