@@ -33,6 +33,7 @@ schema:
   influx_db_database: "str"
   influx_db_tags: "str?"
   speedtest_interval: int
+  speedtest_server_id: int?
   ping_interval: int
   ping_targets: "str"
   log_type: "list(error|notice|info|debug)?"
