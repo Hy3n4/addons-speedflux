@@ -22,7 +22,6 @@ options:
   influx_db_database: "speedtest"
   influx_db_tags: "*"
   speedtest_interval: 5
-  speedtest_server_id: None
   ping_interval: 5
   ping_targets: "1.1.1.1, 8.8.8.8"
   log_type: "info"
@@ -35,7 +34,6 @@ schema:
   influx_db_database: "str"
   influx_db_tags: "str?"
   speedtest_interval: "str?"
-  speedtest_server_id: int?
   ping_interval: int?
   ping_targets: "str?"
   log_type: "str?"
