@@ -28,7 +28,7 @@ if bashio::config.has_value 'influx_db_port'; then
 fi
 
 if bashio::config.has_value 'influx_db_user'; then
-    influx_db_user=$(bashio::config 'influx_db_port')
+    influx_db_user=$(bashio::config 'influx_db_user')
     export INFLUX_DB_USER=${influx_db_user}
 fi
 
@@ -75,6 +75,7 @@ fi
 
 bashio::log.info "namespace: ${NAMESPACE}"
 bashio::log.info "influx_db_address: ${INFLUX_DB_ADDRESS}"
+bashio::log.info "influx_db_port: ${INFLUX_DB_PORT}"
 bashio::log.info "influx_db_user: ${INFLUX_DB_USER}"
 bashio::log.info "influx_db_password: ${INFLUX_DB_PASSWORD}"
 bashio::log.info "influx_db_database: ${INFLUX_DB_DATABASE}"
