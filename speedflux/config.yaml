@@ -33,7 +33,7 @@ schema:
   influx_db_password: "str"
   influx_db_database: "str"
   influx_db_tags: "str?"
-  speedtest_interval: "str?"
+  speedtest_interval: int?
   ping_interval: int?
   ping_targets: "str?"
   log_type: "str?"
