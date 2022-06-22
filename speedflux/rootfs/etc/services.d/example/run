@@ -69,11 +69,13 @@ if bashio::config.has_value 'ping_targets'; then
 fi
 
 if bashio::config.has_value 'tweaks.log_type'; then
+    bashio::log.info "log_type ha value!"
     log_type=$(bashio::config 'tweaks.log_type')
     export LOG_TYPE=${log_type}
 fi
 
 bashio::log.info "log_type: ${LOG_TYPE}"
+bashio::log.info "ping_targets: ${PING_TARGETS}"
 
 ## Run your program
 exec python3 /app/main.py
