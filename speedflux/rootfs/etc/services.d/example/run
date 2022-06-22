@@ -1,5 +1,6 @@
-#!/usr/bin/with-contenv bashio
+#!/usr/bin/env bashio
 # shellcheck shell=bash
+set +u
 # ==============================================================================
 # Start the example service
 # s6-overlay docs: https://github.com/just-containers/s6-overlay
@@ -12,6 +13,10 @@
 
 bashio::log.info "Starting /app/main.py..."
 
+if bashio::config.has_value 'speedtest_server_id'; then
+    SPEEDTEST_SERVER_ID=$(bashio::config 'speedtest_server_id')
+fi
+
 ## Run your program
 NAMESPACE=$(bashio::config 'namespace') \
 INFLUX_DB_ADDRESS=$(bashio::config 'influx_db_address') \
@@ -21,9 +26,7 @@ INFLUX_DB_PASSWORD=$(bashio::config 'influx_db_password') \
 INFLUX_DB_DATABASE=$(bashio::config 'influx_db_database') \
 INFLUX_DB_TAGS=$(bashio::config 'influx_db_tags') \
 SPEEDTEST_INTERVAL=$(bashio::config 'speedtest_interval') \
-if bashio::config.has_value 'speedtest_server_id'; then
-    SPEEDTEST_SERVER_ID=$(bashio::config 'speedtest_server_id') \
-fi
+SPEEDTEST_SERVER_ID=${SPEEDTEST_SERVER_ID} \
 PING_INTERVAL=$(bashio::config 'ping_interval') \
 PING_TARGETS=$(bashio::config 'ping_targets') \
 LOG_TYPE=$(bashio::config 'log_type') \
