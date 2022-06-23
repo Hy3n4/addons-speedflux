@@ -86,4 +86,4 @@ if bashio::config.has_value 'log_type'; then
 fi
 
 ## Run your program
-exec python3 main.py
+exec python3 /app/main.py
