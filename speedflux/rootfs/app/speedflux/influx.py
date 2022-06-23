@@ -22,13 +22,13 @@ class Influx:
                 self.config.INFLUX_DB_USER,
                 self.config.INFLUX_DB_PASSWORD,
                 None)
-            speedflux.LOG.debug("Client extablished")
+            speedflux.LOG.debug("Client established")
         return self._client
 
     def init_db(self):
 
         try:
-            speedflux.LOG.debug("Intitializing Influx Database")
+            speedflux.LOG.debug("Initializing Influx Database")
             databases = self.client.get_list_database()
             if len(list(filter(
                     lambda x: x['name'] ==
@@ -51,7 +51,7 @@ class Influx:
                 f"incorrect. It's currently '{self.config.INFLUX_DB_ADDRESS}'")
             speedflux.LOG.error("Full Error follows\n")
             speedflux.LOG.error(bad_host)
-            speedflux.LOG.error(f"Retry {self.retries}: Initiliazing DB.")
+            speedflux.LOG.error(f"Retry {self.retries}: Initializing DB.")
             self.init_db()
 
     def format_data(self, data):
@@ -142,7 +142,7 @@ class Influx:
             speedflux.LOG.error("Connection error occurred during write")
             speedflux.LOG.error(bad_connection)
             self.retries += 1
-            speedflux.LOG.error("Reinitiating database and retrying.")
+            speedflux.LOG.error("Re-initiating database and retrying.")
             self.init_db()
             self.write(data, data_type)
 
@@ -153,7 +153,7 @@ class Influx:
         tags = self.config.INFLUX_DB_TAGS
         options = {}
 
-        # tag_switch takes in _data and attaches CLIoutput to more readable ids
+        # tag_switch takes in _data and attaches CLI output to more readable ids
         tag_switch = {
             'namespace': self.config.NAMESPACE,
             'isp': data['isp'],

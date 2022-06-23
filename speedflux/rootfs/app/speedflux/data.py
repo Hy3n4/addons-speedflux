@@ -7,7 +7,7 @@ import speedflux
 
 
 def speedtest():
-    if speedflux.CONFIG.SPEEDTEST_SERVER_ID is None:
+    if not speedflux.CONFIG.SPEEDTEST_SERVER_ID:
         speedtest = subprocess.run(
             ["speedtest", "--accept-license", "--accept-gdpr", "-f", "json"],
             capture_output=True)
@@ -43,6 +43,7 @@ def speedtest():
 
 def pingtest():
     timestamp = datetime.datetime.utcnow()
+    speedflux.LOG.info("PING_TARGETS: {}".format(speedflux.CONFIG.PING_TARGETS))
     for target in speedflux.CONFIG.PING_TARGETS.split(','):
         target = target.strip()
         speedflux.LOG.debug('Running ping test...')
